@@ -6,7 +6,8 @@ const ColorPicker = () => {
   const snap = useSnapshot(state);
 
   return (
-    <div className="absolute left-full ml-3">
+    <div className="colorpicker-popover">
+      <p className="picker-title">Base Color</p>
       <SketchPicker
         color={snap.color}
         disableAlpha
@@ -23,7 +24,8 @@ const ColorPicker = () => {
           "#C19277",
           "#FF96AD",
           "#512314",
-          "#512314",
+          "#1F3558",
+          "#25185F",
         ]}
       />
     </div>

@@ -1,22 +1,30 @@
-export const transition = { type: "spring", duration: 0.8 };
+export const transition = {
+  type: "spring",
+  mass: 0.8,
+  damping: 20,
+  stiffness: 190,
+};
 
 export const slideAnimation = (direction) => {
+  const offset = 72;
+
   return {
     initial: {
-      x: direction === "left" ? -100 : direction === "right" ? 100 : 0,
-      y: direction === "up" ? 100 : direction === "down" ? -100 : 0,
+      x: direction === "left" ? -offset : direction === "right" ? offset : 0,
+      y: direction === "up" ? offset : direction === "down" ? -offset : 0,
       opacity: 0,
-      transition: { ...transition, delay: 0.5 },
+      transition: { ...transition, delay: 0.24 },
     },
     animate: {
       x: 0,
       y: 0,
       opacity: 1,
-      transition: { ...transition, delay: 0 },
+      transition: { ...transition, delay: 0.02 },
     },
     exit: {
-      x: direction === "left" ? -100 : direction === "right" ? 100 : 0,
-      y: direction === "up" ? 100 : direction === "down" ? -100 : 0,
+      x: direction === "left" ? -offset : direction === "right" ? offset : 0,
+      y: direction === "up" ? offset : direction === "down" ? -offset : 0,
+      opacity: 0,
       transition: { ...transition, delay: 0 },
     },
   };
@@ -25,46 +33,46 @@ export const slideAnimation = (direction) => {
 export const fadeAnimation = {
   initial: {
     opacity: 0,
-    transition: { ...transition, delay: 0.5 },
+    y: 8,
+    transition: { ...transition, delay: 0.22 },
   },
   animate: {
     opacity: 1,
+    y: 0,
     transition: { ...transition, delay: 0 },
   },
   exit: {
     opacity: 0,
+    y: 6,
     transition: { ...transition, delay: 0 },
   },
 };
 
 export const headTextAnimation = {
-  initial: { x: 100, opacity: 0 },
-  animate: { x: 0, opacity: 1 },
+  initial: { y: 28, opacity: 0, scale: 0.98 },
+  animate: { y: 0, opacity: 1, scale: 1 },
   transition: {
-    type: "spring",
-    damping: 5,
-    stiffness: 40,
-    restDelta: 0.001,
-    duration: 0.3,
+    ...transition,
+    damping: 18,
+    stiffness: 170,
   },
 };
 
 export const headContentAnimation = {
-  initial: { y: 100, opacity: 0 },
+  initial: { y: 48, opacity: 0 },
   animate: { y: 0, opacity: 1 },
   transition: {
-    type: "spring",
-    damping: 7,
-    stiffness: 30,
-    restDelta: 0.001,
-    duration: 0.6,
-    delay: 0.2,
-    delayChildren: 0.2,
+    ...transition,
+    damping: 16,
+    stiffness: 140,
+    delay: 0.12,
+    delayChildren: 0.1,
+    staggerChildren: 0.06,
   },
 };
 
 export const headContainerAnimation = {
-  initial: { x: -100, opacity: 0, transition: { ...transition, delay: 0.5 } },
-  animate: { x: 0, opacity: 1, transition: { ...transition, delay: 0 } },
-  exit: { x: -100, opacity: 0, transition: { ...transition, delay: 0 } },
+  initial: { x: -72, opacity: 0, transition: { ...transition, delay: 0.24 } },
+  animate: { x: 0, opacity: 1, transition: { ...transition, delay: 0.02 } },
+  exit: { x: -72, opacity: 0, transition: { ...transition, delay: 0 } },
 };

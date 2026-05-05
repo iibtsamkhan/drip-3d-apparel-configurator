@@ -1,6 +1,7 @@
 import express from "express";
 import * as dotenv from "dotenv";
 import { Configuration, OpenAIApi } from "openai";
+import requireUserAuth from "../middleware/requireUserAuth.js";
 
 dotenv.config();
 
@@ -16,7 +17,7 @@ router.route("/").get((req, res) => {
   res.status(200).json({ message: "Hello from DALL.E ROUTES" });
 });
 
-router.route("/").post(async (req, res) => {
+router.route("/").post(requireUserAuth, async (req, res) => {
   try {
     const { prompt } = req.body;
 
@@ -30,7 +31,7 @@ router.route("/").post(async (req, res) => {
     res.status(200).json({ photo: image });
   } catch (error) {
     console.error(error);
-    res.status(200).json({ message: "Something went wrong" });
+    res.status(500).json({ message: "Something went wrong" });
   }
 });
 

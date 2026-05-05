@@ -4,6 +4,7 @@ const FilePicker = ({ file, setFile, readFile }) => {
   return (
     <div className="filepicker-container">
       <div className="flex-1 flex flex-col">
+        <p className="picker-title">Upload Artwork</p>
         <input
           type="file"
           id="file-upload"
@@ -11,10 +12,10 @@ const FilePicker = ({ file, setFile, readFile }) => {
           onChange={(e) => setFile(e.target.files[0])}
         />
         <label htmlFor="file-upload" className="filepicker-label">
-          Upload File
+          Select Image
         </label>
 
-        <p className="mt-2 text-gray-500 text-xs truncate">
+        <p className="filepicker-filename">
           {file === "" ? "No file selected" : file.name}
         </p>
 
@@ -23,15 +24,18 @@ const FilePicker = ({ file, setFile, readFile }) => {
             type="outline"
             title="Logo"
             handleClick={() => readFile("logo")}
-            customStyles="text-xs"
+            customStyles="flex-1 text-xs"
+            isDisabled={!file}
           />
           <CustomButton
             type="filled"
             title="Full"
             handleClick={() => readFile("full")}
-            customStyles="text-xs"
+            customStyles="flex-1 text-xs"
+            isDisabled={!file}
           />
         </div>
+        <p className="picker-note">PNG, JPG, and transparent assets work best.</p>
       </div>
     </div>
   );
