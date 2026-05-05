@@ -742,7 +742,7 @@ body {
 }
 
 .session-panel {
-  @apply rounded-[22px] p-3.5;
+  @apply rounded-[22px] p-4;
   border: 1px solid rgba(122, 175, 255, 0.12);
   background:
     linear-gradient(160deg, rgba(7, 13, 24, 0.92), rgba(7, 13, 24, 0.78)),
@@ -751,22 +751,27 @@ body {
 }
 
 .session-overview {
-  @apply mb-3;
+  @apply mb-4;
 }
 
 .session-stat-grid {
-  @apply mt-3 grid gap-2;
+  @apply mt-3 grid gap-3;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .session-stat-card {
-  @apply rounded-2xl p-2.5;
+  @apply rounded-2xl px-3 py-2.5;
   border: 1px solid rgba(122, 175, 255, 0.12);
   background: rgba(10, 22, 42, 0.64);
+  min-height: 4.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.3rem;
 }
 
 .session-title {
-  @apply text-[0.62rem] font-semibold uppercase tracking-[0.19em];
+  @apply text-[0.62rem] font-semibold uppercase tracking-[0.22em];
   color: rgba(203, 213, 225, 0.82);
 }
 
@@ -775,11 +780,12 @@ body {
 }
 
 .session-key {
-  @apply text-[0.58rem] uppercase tracking-[0.14em] text-slate-400/80;
+  @apply text-[0.56rem] uppercase tracking-[0.18em] text-slate-400/80;
 }
 
 .session-value {
-  @apply text-[0.76rem] font-semibold uppercase tracking-[0.11em] text-slate-100;
+  @apply text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-slate-100;
+  line-height: 1.1;
 }
 
 .session-value.is-on {
@@ -791,19 +797,28 @@ body {
 }
 
 .decal-controls {
-  @apply rounded-[18px] p-3;
+  @apply rounded-[18px] p-4;
   border: 1px solid rgba(122, 175, 255, 0.16);
   background: rgba(9, 21, 43, 0.66);
 }
 
+.session-row + .decal-help {
+  margin-top: 0.55rem;
+}
+
 .decal-help {
-  @apply mt-1 text-[0.7rem] leading-5;
+  @apply mt-2 text-[0.72rem] leading-6;
   color: rgba(213, 227, 250, 0.74);
 }
 
 .decal-control {
-  @apply mt-2 flex flex-col gap-1.5 text-[0.62rem] uppercase tracking-[0.12em];
+  @apply mt-3 flex flex-col gap-2 text-[0.62rem] uppercase tracking-[0.14em];
   color: rgba(220, 232, 252, 0.84);
+}
+
+.decal-control span {
+  @apply flex items-center justify-between gap-2;
+  line-height: 1.2;
 }
 
 .decal-control input[type="range"] {
@@ -811,7 +826,7 @@ body {
 }
 
 .mini-toggle {
-  @apply rounded-full px-2.5 py-1 text-[0.54rem] font-semibold uppercase tracking-[0.12em] transition-all duration-200;
+  @apply rounded-full px-3 py-1.5 text-[0.54rem] font-semibold uppercase tracking-[0.14em] transition-all duration-200;
   border: 1px solid rgba(166, 205, 255, 0.38);
   color: #d9e8ff;
   background: rgba(11, 28, 59, 0.36);
@@ -824,7 +839,7 @@ body {
 }
 
 .session-notice {
-  @apply mt-3 rounded-[16px] px-3 py-2.5 text-[0.72rem] leading-5;
+  @apply mt-4 rounded-[16px] px-3.5 py-3 text-[0.72rem] leading-6;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(10, 18, 33, 0.74);
   color: rgba(194, 207, 235, 0.82);
