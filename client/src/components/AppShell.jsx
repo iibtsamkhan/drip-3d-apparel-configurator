@@ -50,12 +50,14 @@ const AppShell = () => {
               type="filled"
               title="Start New Design"
               handleClick={() => navigate("/app/customizer")}
-              customStyles="px-4 py-2.5 text-[0.72rem] font-semibold tracking-[0.1em] uppercase"
+              customStyles="app-shell-cta px-5 py-3 text-[0.72rem] font-semibold tracking-[0.12em] uppercase"
               styleOverrides={{
                 background:
-                  "linear-gradient(135deg, rgba(27, 76, 160, 0.96) 0%, rgba(44, 121, 225, 0.92) 52%, rgba(96, 86, 237, 0.92) 100%)",
+                  "linear-gradient(135deg, rgba(40, 92, 196, 0.98) 0%, rgba(59, 125, 239, 0.94) 52%, rgba(107, 96, 243, 0.94) 100%)",
                 borderColor: "rgba(180, 214, 255, 0.72)",
                 color: "#f5fbff",
+                minHeight: "4.1rem",
+                minWidth: "10rem",
               }}
             />
           )}

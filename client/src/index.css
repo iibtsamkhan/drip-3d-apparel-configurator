@@ -1580,15 +1580,17 @@ input[type="file"] {
 }
 
 .app-shell-actions {
-  @apply flex items-center gap-3;
+  @apply flex items-center justify-end gap-3;
   min-width: 0;
-  max-width: min(100%, 29rem);
+  max-width: min(100%, 32rem);
+  margin-left: auto;
 }
 
 .app-shell-user {
-  @apply flex items-center gap-3 rounded-[20px] px-3 py-2.5;
+  @apply flex items-center gap-3 rounded-[22px] px-3.5 py-3;
   min-width: 0;
-  width: min(100%, 18rem);
+  width: min(100%, 18.5rem);
+  min-height: 4.1rem;
   overflow: hidden;
   border: 1px solid rgba(122, 175, 255, 0.18);
   background:
@@ -1597,7 +1599,7 @@ input[type="file"] {
 }
 
 .app-shell-user-copy {
-  @apply flex min-w-0 flex-1 flex-col items-end;
+  @apply flex min-w-0 flex-1 flex-col items-end justify-center text-right;
   overflow: hidden;
 }
 
@@ -1617,7 +1619,14 @@ input[type="file"] {
 }
 
 .app-shell-user-avatar {
-  @apply shrink-0;
+  @apply shrink-0 self-center;
+}
+
+.app-shell-cta {
+  border-radius: 18px;
+  box-shadow:
+    0 16px 34px rgba(8, 24, 62, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
 }
 
 .app-shell-main {
